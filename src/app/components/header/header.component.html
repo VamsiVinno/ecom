@@ -80,15 +80,15 @@
    >
   <div class="mt-2">
   <p style="font-size: 16px; font-weight: 500;">
-   Hello {{addressStore?[0].username}}
+   Hello {{addressStore[0]?.username}}
   </p>
-  <p>{{addressStore?[0].phone}}</p>
+  <p>{{addressStore[0]?.phone}}</p>
 </div>
 <hr>
 <div>
   <ul class="list-unstyled">
-    <li  class="mb-2" [routerLink]="['/allorders']" style="cursor: pointer;"><a > {{'orders' | translate}}</a></li>
-    <li [routerLink]="['/address']" class="mb-2" style="cursor: pointer;"><a> {{'savedaddresses' | translate}}</a></li>
+    <li  class="mb-2" [routerLink]="['/allorders']" style="cursor: pointer;"><a >orders</a></li>
+    <li [routerLink]="['/address']" class="mb-2" style="cursor: pointer;"><a>savedaddresses</a></li>
   </ul>
 </div>
 </div>
