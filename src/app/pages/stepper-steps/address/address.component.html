@@ -103,7 +103,7 @@ class="border ml-5 mb-3" *ngIf="addressStore">
         </div>
       </div>
       </div>
-      <div class="col-lg-5 text-secondary border ml-2" *ngIf="cartArray.length>0">
+      <div class="col-lg-5 text-secondary border ml-2" *ngIf="cartArray">
         <h4>ITEM DETAILS</h4>
         <div style="overflow-y:auto">
           <div *ngFor="let item of cartArray">
