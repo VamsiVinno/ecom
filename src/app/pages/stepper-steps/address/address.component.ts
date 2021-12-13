@@ -42,7 +42,8 @@ export class AddressComponent implements OnInit {
   this.address=localStorage.getItem('address');
   this.addressStore=JSON.parse(this.address)
   this.addressArray=this.addressStore
-  this.otherAddress=this.addressArray.slice(1)
+
+  this.otherAddress=this.addressArray?.slice(1)
 console.log(this.otherAddress);
 
 this.pageService.cartArray.subscribe(res=>{
@@ -103,6 +104,7 @@ this.isEdit.emit(true)
 this.frmStepTwo=true
 }
   onSubmit() {
+ console.log(this.addressForm.value.userdata);
  
     if(this.editAddress==false){
 this.addressArray.push(this.addressForm.value.userdata)
