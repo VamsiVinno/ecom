@@ -38,13 +38,7 @@ export class AddressComponent implements OnInit {
       }),
       
     });
-  //   this.signUpForm.valueChanges.subscribe(x => {
-  //     console.log('form value changed')
-  //     console.log(x)
-  // });
-  // this.signUpForm.statusChanges.subscribe(x => {
-  //   console.log('status changed')
-  //   console.log(x)
+  
   this.address=localStorage.getItem('address');
   this.addressStore=JSON.parse(this.address)
   this.addressArray=this.addressStore
