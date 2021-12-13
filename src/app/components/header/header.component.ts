@@ -24,7 +24,7 @@ export class HeaderComponent implements OnInit, OnChanges {
   searchValue?: string = '';
   cartLength:any
   address:any=localStorage.getItem('address');
-  addressStore:any=JSON.parse(this.address)
+  addressStore:[]=JSON.parse(this.address)
 
   showuserInfo(){
     this.showuser=!this.showuser
