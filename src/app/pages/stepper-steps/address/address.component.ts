@@ -25,7 +25,7 @@ export class AddressComponent implements OnInit {
   @Output() isEdit = new EventEmitter<boolean>();
   frmStepTwo: any;
   address: any;
-  addressStore: any = [];
+  addressStore: CartAddress[] | null = [];
   cartArray!: ProductModel[];
   totalPrice!: number;
   totalAmount!: number;
@@ -46,7 +46,7 @@ export class AddressComponent implements OnInit {
 
     this.address = localStorage.getItem("address");
     this.addressStore = JSON.parse(this.address);
-    this.addressArray = this.addressStore;
+    this.addressArray = this.addressStore || [];
 
     this.otherAddress = this.addressArray?.slice(1);
     console.log(this.otherAddress);
@@ -80,22 +80,22 @@ export class AddressComponent implements OnInit {
   onSelect(i: number) {
     this.selectedAddressIndex = i;
     console.log(i);
-    console.log(this.addressStore[i]);
+    console.log(this.addressStore![i]);
   }
   onRemove(i: number) {
-    this.addressStore.splice(i, 1);
-    this.addressArray = this.addressStore;
+    this.addressStore!.splice(i, 1);
+    this.addressArray = this.addressStore!;
     localStorage.setItem("address", JSON.stringify(this.addressArray));
   }
   onEdit(i: number) {
     this.index = i;
     this.addressForm?.setValue({
       userdata: {
-        username: this.addressStore[i].username,
-        phone: this.addressStore[i].phone,
-        address: this.addressStore[i].address,
-        landmark: this.addressStore[i].landmark,
-        pincode: this.addressStore[i].pincode,
+        username: this.addressStore![i].username,
+        phone: this.addressStore![i].phone,
+        address: this.addressStore![i].address,
+        landmark: this.addressStore![i].landmark,
+        pincode: this.addressStore![i].pincode,
       },
     });
     this.editAddress = true;
@@ -116,15 +116,15 @@ export class AddressComponent implements OnInit {
       this.addressArray.push(this.addressForm!.value!.userdata!);
       localStorage.setItem("address", JSON.stringify(this.addressArray));
     } else {
-      this.addressStore[this.index].username =
+      this.addressStore![this.index].username =
         this.addressForm?.value.userdata.username;
-      this.addressStore[this.index].phone =
+      this.addressStore![this.index].phone =
         this.addressForm?.value.userdata.phone;
-      this.addressStore[this.index].address =
+      this.addressStore![this.index].address =
         this.addressForm?.value.userdata.address;
-      this.addressStore[this.index].landmark =
+      this.addressStore![this.index].landmark =
         this.addressForm?.value.userdata.landmark;
-      this.addressStore[this.index].pincode =
+      this.addressStore![this.index].pincode =
         this.addressForm?.value.userdata.pincode;
     }
     this.closebutton.nativeElement.click();
