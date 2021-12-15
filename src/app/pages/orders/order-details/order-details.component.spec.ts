@@ -1,4 +1,6 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TranslateService, TranslateStore, TranslateLoader, TranslateCompiler, TranslateParser, MissingTranslationHandler } from '@ngx-translate/core';
 
 import { OrderDetailsComponent } from './order-details.component';
 
@@ -8,7 +10,9 @@ describe('OrderDetailsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ OrderDetailsComponent ]
+      declarations: [ OrderDetailsComponent ],
+      imports:[HttpClientModule],
+
     })
     .compileComponents();
   });

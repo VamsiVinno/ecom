@@ -3,23 +3,24 @@
         <div class="col-lg-6 m-auto border ">
             <div class="bg-light mb-3 p-2 mt-2">
 
-            <p style="font-size: 18px ; font-weight: 500;" class="mt-3">Select delivery date:</p>
-                  <div class="row">
+                  <div class="row m-auto">
                       <div class="ml-2">
+            <p style="font-size: 18px ; font-weight: 500;" class="mt-3">Select delivery date:</p>
+
                         <mat-radio-group aria-label="Select an option"   [(ngModel)]="selectedDate">
-                            <mat-radio-button value="{{item}}" [disabled]="checkButton(i)" *ngFor="let item of alldates;let i=index" class="border p-2 m-2 ">{{item | date}}</mat-radio-button>
+                            <mat-radio-button value="{{item}}" [disabled]="checkButton(i)" *ngFor="let item of alldates;let i=index" checked class="border p-2  pr-4 pl-3 pt-3 pb-3 m-2" style="height: 50px; width:150px;text-align: center;">{{item | date}}</mat-radio-button>
                         </mat-radio-group>
                       </div>
                       
                   </div>
             </div>
             <div class="bg-light mb-3 p-1">
-                <p style="font-size: 18px ; font-weight: 500;" class="mt-3">Select Delivery Time:</p> 
-                <div class="row">
+                <div class="row m-auto">
                     <div class="ml-2">
+                        <p style="font-size: 18px ; font-weight: 500;" class="mt-3">Select Delivery Time:</p> 
 
-                <mat-radio-group aria-label="Select an option"   [(ngModel)]="selectedDate">
-                     <mat-radio-button value="{{item}}"  *ngFor="let item of pickTime;let i=index" class="border p-2 m-2">{{item}}</mat-radio-button>
+                <mat-radio-group aria-label="Select an option"   [(ngModel)]="selectedDate" >
+                     <mat-radio-button value="{{item}}"  *ngFor="let item of pickTime;let i=index" [checked]="item.checked" class="border p-2  pr-4 pl-3 pt-3 pb-3 m-2" style="height: 50px; width:150px;text-align: center;">{{item.time}}</mat-radio-button>
                  </mat-radio-group>
            </div>
            </div>

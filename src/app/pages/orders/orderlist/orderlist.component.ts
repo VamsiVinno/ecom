@@ -31,8 +31,16 @@ export class OrderlistComponent implements OnInit {
   
   }
   onOrderClick(i: number) {
-    this.pagesService.clickedOrder(this.allOrdersArray[i]);
-    this.pagesService.orders.next(this.orders[i]);
+    this.allOrdersArray.map((e:ProductModel)=>{
+if(e.product_id===i){
+  this.pagesService.clickedOrder(e);
+}
+    })
+    this.orders.map((o:any)=>{
+      if(o.product_id===i){
+        this.pagesService.orders.next(o);
+      }
+    })
     this.route.navigate(['orderdetails']);
   }
   ordersSort(sortBy:string){

@@ -21,22 +21,11 @@
             ></div>
           </ng-container>
         </div>
-        <div class="col-lg-6 col-md-6 mt-3">
-          <!-- <lib-ngx-image-zoom
-            [thumbImage]="(productDetails?.images)![imageIndex]"
-            [fullImage]="(productDetails?.images)![imageIndex]"
-            [magnification]="1"
-            [enableScrollZoom]="true"
-            [enableLens]="true"
-            [lensWidth]="250"
-            [lensHeight]="250"
-            (zoomPosition)="getPosition($event)"
-            (mouseover)="showPreview = true"
-            (mouseout)="showPreview = false"
-          ></lib-ngx-image-zoom> -->
+        <div class="col-lg-6 col-md-6 mt-3"  *ngIf="productDetails.images">
+   
           <ng-img-magnifier
-            thumbImage="{{ (productDetails?.images)![imageIndex] }}"
-            fullImage="{{ (productDetails?.images)![imageIndex] }}"
+            thumbImage="{{ productDetails.images[imageIndex] }}"
+            fullImage="{{ productDetails.images[imageIndex] }}"
             [top]="'1'"
             [right]="'-190'"
             [lensWidth]="'200'"

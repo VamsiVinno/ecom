@@ -1,6 +1,7 @@
 import { Component, DoCheck, Input, OnChanges, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { EcomServices } from 'src/app/ecom.services';
+import { ProductModel } from 'src/app/shared/product.model';
 import { SharedService } from 'src/app/shared/shared.services';
 import { ComponentService } from '../components.service';
 
@@ -21,12 +22,19 @@ export class ProductLayoutComponent implements OnInit, OnChanges {
   emptyArray: boolean = false;
   displayedProductsArray: any;
   onProduct(i: number) {
-    this.shared.clickedProduct = i;
-    localStorage.setItem(
-      'clickedProduct',
-      JSON.stringify(this.productsArray[i])
-    );
-this.route.navigate(['/product',`${this.productsArray[i].product_id}`])
+  
+    console.log(i);
+    this.productsArray.map((e:ProductModel)=>{
+if(e.product_id===i){
+  localStorage.setItem(
+    'clickedProduct',
+    JSON.stringify(e)
+  );
+}
+    })
+    // this.shared.clickedProduct = i;
+   
+// this.route.navigate(['/product',`${this.productsArray[i].product_id}`])
   }
   constructor(
     private ecomService: EcomServices,

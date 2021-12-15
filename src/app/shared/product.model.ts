@@ -9,4 +9,3 @@ export class ProductModel {
   createdAt?: string;
   updatedAt?: string;
 }
-

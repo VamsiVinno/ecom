@@ -1,3 +1,4 @@
+import { style } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { interval} from 'rxjs';
@@ -22,25 +23,29 @@ export class PlaceOrderComponent implements OnInit {
   totalDiscount!:number
   shippingAddress!:any
   timer!:number
+  showDownload:boolean=true
   constructor(private ecom: EcomServices, private pagesService: PagesService,private router:Router) {}
-  clickDownload()
-  {
-    let bill=document.getElementById('bill')?.outerHTML
-    console.log(bill);
-    let html='Reciept'
-    this.download(bill,html)
-    
-  }
-  download(text:any, filename:any) {
-    var blob = new Blob([text], {
-       type: "text/html"
-    });
-    var url = window.URL.createObjectURL(blob);
-    var a = document.createElement("a");
-    a.href = url;
-    a.download = filename;
-    a.click();
+  
+  download() {
+    let mywindow = window.open('', 'PRINT', 'height=700,width=700');
+    mywindow!.document.write(document.getElementById('bill')!.outerHTML);
+    mywindow!.print();
+    mywindow!.focus(); // necessary for IE >= 10*/
+
+    mywindow!.close();
+
+    return true;
+    // var blob = new Blob([text], {
+    //    type: "text/html"
+    // });
+    // var url = window.URL.createObjectURL(blob);
+    // var a = document.createElement("a");
+    // a.href = url;
+    // a.download = filename;
+    // a.click();
+   
  }
+
   ngOnInit(): void {
     this.pagesService.cartArray.subscribe(res=>{
       // console.log(res);
@@ -63,7 +68,7 @@ export class PlaceOrderComponent implements OnInit {
         setTimeout(() => {
         
           this.router.navigate(['/home']);
-      },5000)
+      },30000)
      interval(1000).pipe(
       take(5)
      ).subscribe(res=>{

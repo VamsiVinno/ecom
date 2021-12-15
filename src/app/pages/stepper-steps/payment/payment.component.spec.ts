@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { AppRoutingModule } from 'src/app/approuting.module';
 
 import { PaymentComponent } from './payment.component';
 
@@ -8,7 +9,8 @@ describe('PaymentComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PaymentComponent ]
+      declarations: [ PaymentComponent ],
+      imports:[AppRoutingModule]
     })
     .compileComponents();
   });

@@ -172,7 +172,6 @@ this.pageService.totalAmount.next(this.totalAmount!)
 this.isEdit.emit(true)
 this.firstStep.emit()
 this.frmStepOne=true
-    
   }
   ngOnInit(): void {
     this.cartFormGroup = this._formBuilder.group({

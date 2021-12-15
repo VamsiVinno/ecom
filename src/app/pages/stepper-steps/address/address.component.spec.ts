@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { AppRoutingModule } from 'src/app/approuting.module';
 
 import { AddressComponent } from './address.component';
 
@@ -8,7 +9,8 @@ describe('AddressComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AddressComponent ]
+      declarations: [ AddressComponent ],
+      imports:[AppRoutingModule]
     })
     .compileComponents();
   });

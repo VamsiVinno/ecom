@@ -1,5 +1,5 @@
 
-<div style=" height: 890px; overflow-y: scroll;" i18n>
+<div style="height: 890px; overflow-y: scroll;" i18n>
 <div id="carouselExampleIndicators" class=" col-xs-12 carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -47,19 +47,19 @@
 </div>
 
 
-<div class="container-fluid mb-5">
-  <h3>Deals of the day</h3>
+<div class="container-fluid mb-5 mt-3">
+  <h1>{{'Deals of the day' | translate}}</h1>
 
 </div>
 <div class="container-fluid mb-5  d-flex justify-content-center">
   <div *ngFor="let item of DealsOfTheDay" class="col-sm-2 mr-4  overflow-hidden">
-    <img src="{{item}}" style="width: 100%;">
+    <a (click)="onImgClick('women')"><img src="{{item}}" style="width: 100%;"></a>
 
   </div>
 </div>
 
 <div class="container-fluid mb-5">
-  <h3>Best Deals </h3>
+  <h1>{{'Best Deals ' | translate}}</h1>
 
 </div>
 <div class="container-fluid mb-5  d-flex justify-content-center">

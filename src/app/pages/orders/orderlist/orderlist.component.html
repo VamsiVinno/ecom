@@ -4,8 +4,8 @@
   </div>
   <div class="row " style="overflow-y: scroll; height: 840px;">
   <div class="col-lg-6 m-auto ">
-      <div *ngFor="let item of allOrdersArray | paginate: { itemsPerPage: 10, currentPage: p };let i=index"  class="mb-3 bg-light p-2">
-        <div class="row" (click)="onOrderClick(i)">
+      <div *ngFor="let item of allOrdersArray | paginate: { itemsPerPage: 3, currentPage: p };let i=index"  class="mb-3 bg-light p-2">
+        <div class="row" (click)="onOrderClick(item.product_id!)">
           <div *ngIf=item.images class="ml-3">
             <img src={{item.images[0]}} style="height: 150px; width: 100px; margin: 10px;">
           </div>

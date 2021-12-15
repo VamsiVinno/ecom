@@ -31,7 +31,7 @@ import { MatRadioModule } from '@angular/material/radio';
     MatFormFieldModule,
     MatNativeDateModule,
     MatInputModule,
-    MatRadioModule
+    MatRadioModule,
   ]
 })
 export class StepperStepsModule { }

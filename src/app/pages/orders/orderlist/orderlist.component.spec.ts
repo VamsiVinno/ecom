@@ -1,4 +1,8 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormBuilder } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { AppRoutingModule } from 'src/app/approuting.module';
 
 import { OrderlistComponent } from './orderlist.component';
 
@@ -8,7 +12,9 @@ describe('OrderlistComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ OrderlistComponent ]
+      declarations: [ OrderlistComponent ],
+      providers:[FormBuilder],
+imports:[HttpClientModule,AppRoutingModule,NgxPaginationModule]
     })
     .compileComponents();
   });

@@ -1,4 +1,7 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TranslateService, TranslateStore, TranslateLoader, TranslateCompiler, TranslateParser, MissingTranslationHandler, TranslateModule } from '@ngx-translate/core';
+import { AppRoutingModule } from 'src/app/approuting.module';
 
 import { HomepageComponent } from './homepage.component';
 
@@ -8,7 +11,10 @@ describe('HomepageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HomepageComponent ]
+      declarations: [ HomepageComponent ],
+      imports:[HttpClientModule,AppRoutingModule,TranslateModule],
+      providers:[TranslateService,TranslateStore,TranslateLoader,TranslateCompiler,TranslateParser,MissingTranslationHandler]
+
     })
     .compileComponents();
   });

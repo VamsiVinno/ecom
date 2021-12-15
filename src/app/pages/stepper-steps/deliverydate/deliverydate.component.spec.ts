@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { AppRoutingModule } from 'src/app/approuting.module';
 
 import { DeliverydateComponent } from './deliverydate.component';
 
@@ -8,7 +9,8 @@ describe('DeliverydateComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DeliverydateComponent ]
+      declarations: [ DeliverydateComponent ],
+      imports:[AppRoutingModule]
     })
     .compileComponents();
   });

@@ -6,7 +6,7 @@ import { BehaviorSubject, Subject } from 'rxjs';
 })
 export class SharedService {
   
-  clickedProduct!: number
+  // clickedProduct!: number
   // clickedProduct = new Subject<number>();
 
   cartLength=new BehaviorSubject<number>(0)

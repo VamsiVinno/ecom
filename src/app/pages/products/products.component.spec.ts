@@ -1,14 +1,20 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { AppRoutingModule } from 'src/app/approuting.module';
 
 import { ProductsComponent } from './products.component';
 
 describe('ProductsComponent', () => {
   let component: ProductsComponent;
   let fixture: ComponentFixture<ProductsComponent>;
-
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ProductsComponent ]
+      declarations: [ ProductsComponent ],
+      providers:[
+      ],
+      imports:[
+        HttpClientModule,AppRoutingModule
+      ]
     })
     .compileComponents();
   });
@@ -20,6 +26,7 @@ describe('ProductsComponent', () => {
   });
 
   it('should create', () => {
+    component.ngOnInit() ;
     expect(component).toBeTruthy();
   });
 });

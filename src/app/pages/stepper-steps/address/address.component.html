@@ -19,26 +19,26 @@
           <p style="font-size: 16px; color:gray;" class="ml-5"> DEFAULT ADDRESS</p>
         
 <div 
-class="border ml-5 mb-3" *ngIf="addressStore">
+class="border ml-5 mb-3" *ngIf="addressStore?.length">
 
   <input
             type="radio"
             (change)="onSelect(0)"
-            value="{{ addressStore[0] }}"
+            value="{{ addressStore![0] }}"
             class="float-left mt-3 ml-3 form-check-input"
             name="r1"
           checked />
           <div class="ml-5">
             <p style="font-size: 18px; font-weight: 500px" class="mt-2">
-              {{ addressStore[0]?.username }}
+              {{ addressStore![0]?.username }}
             </p>
             <div class="d-flex">
-              <p class="mr-2">{{ addressStore[0]?.address }}</p>
-              <p>{{ addressStore[0]?.landmark }} {{ addressStore[0]?.pincode }}</p>
+              <p class="mr-2">{{ addressStore![0]?.address }}</p>
+              <p>{{ addressStore![0]?.landmark }} {{ addressStore![0]?.pincode }}</p>
             </div>
             <div class="d-flex">
               <span>Mobile:</span>
-              <p>{{ addressStore[0]?.phone }}</p>
+              <p>{{ addressStore![0]?.phone }}</p>
             </div>
             <button
               class="btn border-dark text-dark mr-5"
@@ -103,7 +103,7 @@ class="border ml-5 mb-3" *ngIf="addressStore">
         </div>
       </div>
       </div>
-      <div class="col-lg-5 text-secondary border ml-2" *ngIf="cartArray">
+      <div class="col-lg-5 text-secondary border ml-2" *ngIf="cartArray.length>0">
         <h4>ITEM DETAILS</h4>
         <div style="overflow-y:auto">
           <div *ngFor="let item of cartArray">
@@ -220,7 +220,7 @@ class="border ml-5 mb-3" *ngIf="addressStore">
             >
               Close
             </button>
-            <button type="submit" class="btn btn-primary" (click)="onSubmit()">
+            <button type="submit" class="btn btn-primary" [disabled] ="addressForm.invalid"(click)="onSubmit()">
               Save changes
             </button>
           </div>
@@ -230,25 +230,25 @@ class="border ml-5 mb-3" *ngIf="addressStore">
   </div>
   <div class="row justify-content-center mt-5">
     <img
-      src="https://constant.myntassets.com/checkout/assets/img/footer-bank-visa.png"
+      src="../../../assets/Images/footer-bank-bhim.png"
       class="mr-2"
       height="50px"
     />
     <img
-      src="https://constant.myntassets.com/checkout/assets/img/footer-bank-mc.png"
+      src="../../../assets/Images/footer-bank-mc.png"
       class="mr-2"
       height="50px"
     />
     <img
-      src="https://constant.myntassets.com/checkout/assets/img/footer-bank-rupay.png"
+      src="../../../assets/Images/footer-bank-paypal.png"
       class="mr-2"
       height="50px"
     />
     <img
-      src="https://constant.myntassets.com/checkout/assets/img/footer-bank-paypal.png"
+      src="../../../assets/Images/footer-bank-rupay.png"
       class="mr-2"
       height="50px"
     />
-    <img src="https://constant.myntassets.com/checkout/assets/img/footer-bank-bhim.png" height="50px" />
+    <img src="../../../assets/Images/footer-bank-visa.png" height="50px" />
   </div>
 </div>

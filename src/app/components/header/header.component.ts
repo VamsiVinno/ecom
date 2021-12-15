@@ -24,7 +24,7 @@ export class HeaderComponent implements OnInit, OnChanges {
   searchValue?: string = '';
   cartLength:any
   address:any=localStorage.getItem('address');
-  addressStore:[]=JSON.parse(this.address)
+  addressStore:any=JSON.parse(this.address)
 
   showuserInfo(){
     this.showuser=!this.showuser
@@ -34,9 +34,7 @@ export class HeaderComponent implements OnInit, OnChanges {
     this.ecomService.category.next(
       (event.target as HTMLInputElement).textContent?.toLowerCase()
     );
-    this.componentService.fashionCategory.next(
-      []
-    );
+    
     this.componentService.fashionCategory.next([])
    this.ecomService.local( (event.target as HTMLInputElement).textContent?.toLowerCase()!)
     this.route.navigate(['/products',`${(event.target as HTMLInputElement).textContent?.toLowerCase()}`])
@@ -74,7 +72,9 @@ export class HeaderComponent implements OnInit, OnChanges {
   }
   ngOnInit(): void {
     this.ecomService.showUserInfo.subscribe(res=>{
+      
       this.showuser=res
+
     })
    
     let cart:any=localStorage.getItem('cartLength');

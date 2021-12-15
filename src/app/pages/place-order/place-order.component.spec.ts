@@ -1,4 +1,6 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { AppRoutingModule } from 'src/app/approuting.module';
 
 import { PlaceOrderComponent } from './place-order.component';
 
@@ -8,7 +10,9 @@ describe('PlaceOrderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PlaceOrderComponent ]
+      declarations: [ PlaceOrderComponent ],
+      providers:[],
+      imports:[HttpClientModule,AppRoutingModule]
     })
     .compileComponents();
   });
